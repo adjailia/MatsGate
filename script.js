@@ -77,12 +77,16 @@ function showLoading(show) {
 
 function populateFilters() {
   const brands = new Set();
-  const categories = new Set();
+  const mainCategories = new Set();
   let maxPrice = 0;
   
   allProducts.forEach(p => {
     if (p.brand) brands.add(p.brand);
-    if (p.category) categories.add(p.category);
+    if (p.category) {
+      // استخراج الفئة الرئيسية فقط (قبل的第一个 >)
+      const mainCat = p.category.split(' > ')[0];
+      if (mainCat) mainCategories.add(mainCat);
+    }
     const price = getNumericPrice(p.sale_price || p.price);
     if (price > maxPrice) maxPrice = price;
   });
@@ -96,7 +100,7 @@ function populateFilters() {
   });
 
   categoryFilter.innerHTML = '<option value="">Toutes les catégories</option>';
-  [...categories].sort().forEach(c => {
+  [...mainCategories].sort().forEach(c => {
     const opt = document.createElement('option');
     opt.value = c;
     opt.textContent = c;
@@ -132,7 +136,7 @@ function getFilteredProducts() {
       (p.description && p.description.toLowerCase().includes(searchTerm));
 
     const matchBrand = !brand || p.brand === brand;
-    const matchCategory = !category || p.category === category;
+    const matchCategory = !category || (p.category && p.category.startsWith(category));
     const matchPrice = price >= minP && price <= maxP;
     const matchSale = !saleFilterActive || (p.sale_price && p.sale_price.trim() !== '');
     
