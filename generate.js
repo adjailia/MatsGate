@@ -21,7 +21,7 @@ const path = require('path');
 // Pour cet exemple, nous créons un fichier products.csv avec le contenu fourni par l'utilisateur,
 // mais pour la génération, nous allons simplement le lire.
 
-const csvFilePath = path.join(__dirname, 'products.csv');
+const csvFilePath = path.join(__dirname, 'data', 'products.csv');
 const outputPath = path.join(__dirname, 'data', 'products.json');
 
 // S'assurer que le dossier data existe
