@@ -32,24 +32,10 @@ header {
   gap: 20px;
 }
 
-.logo-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
-}
-
-.logo-text {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #1E3A8A;
-  margin-top: 4px;
-  letter-spacing: 1px;
 }
 
 .header-text h1 {
@@ -465,8 +451,8 @@ header {
     gap: 10px;
   }
   .logo {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
   }
   .header-text h1 {
     font-size: 1.4rem;
@@ -568,11 +554,8 @@ header {
     font-size: 1.2rem;
   }
   .logo {
-    width: 50px;
-    height: 50px;
-  }
-  .logo-text {
-    font-size: 0.75rem;
+    width: 60px;
+    height: 60px;
   }
   .product-grid {
     grid-template-columns: 1fr 1fr;
