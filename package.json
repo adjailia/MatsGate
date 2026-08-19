@@ -1,0 +1,12 @@
+{
+  "name": "metsgate-comparateur",
+  "version": "1.0.0",
+  "description": "Comparateur de produits cosmétiques et parfums pour affiliation - MetsGate",
+  "main": "index.html",
+  "scripts": {
+    "generate": "node generate.js",
+    "start": "python3 -m http.server 8000 || npx serve ."
+  },
+  "author": "",
+  "license": "ISC"
+}
