@@ -26,15 +26,23 @@ header {
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
 header h1 {
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 1px;
-}
-
-header h1 i {
-  margin-right: 10px;
-  color: #f1c40f;
 }
 
 .subtitle {
