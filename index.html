@@ -8,9 +8,11 @@
   <title>Mets Gate - Comparateur de Parfums et Soins</title>
   <meta name="description" content="Comparez les meilleurs parfums, cosmétiques et soins de santé. Trouvez les meilleurs prix et produits en un instant sur Mets Gate.">
   <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Mets Gate - Comparateur de Parfums et Soins">
+  <meta property="og:description" content="Comparez les meilleurs parfums, cosmétiques et soins de santé.">
+  <meta property="og:type" content="website">
   
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -22,6 +24,9 @@
         <h1>Comparateur de produits</h1>
         <p class="subtitle">Trouvez les meilleurs parfums et soins</p>
       </div>
+      <button id="darkModeToggle" class="dark-mode-toggle" title="Mode sombre">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
   </header>
 
@@ -40,34 +45,53 @@
         <select id="categoryFilter">
           <option value="">Toutes les catégories</option>
         </select>
-        <button id="clearFilters" class="clear-btn"><i class="fas fa-times"></i> Effacer les filtres</button>
+        <!-- فلتر السعر -->
+        <div class="price-filter">
+          <label><i class="fas fa-euro-sign"></i> Prix</label>
+          <div class="price-range">
+            <input type="range" id="priceMin" min="0" max="500" value="0">
+            <input type="range" id="priceMax" min="0" max="500" value="500">
+          </div>
+          <div class="price-values">
+            <span id="priceMinVal">0€</span> - <span id="priceMaxVal">500€</span>
+          </div>
+        </div>
+        <!-- فلتر التخفيضات -->
+        <button id="saleFilter" class="sale-filter-btn">
+          <i class="fas fa-tag"></i> Promotions
+        </button>
+        <button id="clearFilters" class="clear-btn"><i class="fas fa-times"></i> Effacer</button>
       </div>
     </section>
 
-    <!-- مؤشر التحميل (Loading Spinner) -->
+    <!-- مؤشر التحميل -->
     <div id="loadingSpinner" class="spinner-container">
       <div class="spinner"></div>
       <p>Chargement des produits...</p>
     </div>
 
-    <!-- شبكة المنتجات -->
-    <section id="productGrid" class="product-grid">
-      <!-- سيتم توليدها بواسطة JavaScript -->
-    </section>
+    <!-- عداد النتائج -->
+    <div id="resultsCount" class="results-count"></div>
 
-    <!-- أزرار التنقل بين الصفحات (Pagination) -->
+    <!-- شبكة المنتجات -->
+    <section id="productGrid" class="product-grid"></section>
+
+    <!-- أزرار التنقل -->
     <div id="paginationControls" class="pagination-controls">
       <button id="prevPageBtn" disabled><i class="fas fa-chevron-left"></i> Précédent</button>
       <span id="pageInfo">Page 1</span>
       <button id="nextPageBtn">Suivant <i class="fas fa-chevron-right"></i></button>
     </div>
 
-    <!-- شريط المقارنة الثابت -->
+    <!-- شريط المقارنة -->
     <div id="compareBar" class="compare-bar">
       <span id="selectionCount">0 produit(s) sélectionné(s)</span>
       <div class="compare-actions">
-        <button id="clearSelectionBtn" class="clear-selection-btn" title="Désélectionner tout">
+        <button id="clearSelectionBtn" class="clear-selection-btn">
           <i class="fas fa-times-circle"></i> Tout désélectionner
+        </button>
+        <button id="shareCompareBtn" class="share-btn" title="Partager la comparaison">
+          <i class="fas fa-share-alt"></i>
         </button>
         <button id="compareBtn" disabled>Comparer les produits</button>
       </div>
@@ -80,15 +104,18 @@
     <div class="modal-content">
       <span class="close-btn">&times;</span>
       <h2>Comparaison des produits</h2>
-      <div id="compareTableContainer">
-        <!-- سيتم توليدها بواسطة JavaScript -->
-      </div>
+      <div id="priceChart" class="price-chart"></div>
+      <div id="compareTableContainer"></div>
     </div>
   </div>
+
+  <!-- إشعار النسخ -->
+  <div id="copyToast" class="toast">Link copied!</div>
 
   <footer>
     <div class="container">
       <p>&copy; 2026 MetsGate – Comparateur indépendant. Les liens sont affiliés.</p>
+      <p class="disclaimer">Les prix sont sujets à modification. Les liens sont des liens d'affiliation.</p>
     </div>
   </footer>
 

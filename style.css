@@ -1,4 +1,4 @@
-/* style.css - Design moderne et responsive (avec ajouts) */
+/* style.css - Design moderne et responsive */
 
 * {
   margin: 0;
@@ -10,6 +10,77 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f7f7f7;
   color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #1a1a2e;
+  color: #e0e0e0;
+}
+body.dark-mode header {
+  background: linear-gradient(135deg, #006b42, #004d30);
+}
+body.dark-mode .filters {
+  background: #16213e;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+body.dark-mode .search-bar input,
+body.dark-mode .filter-options select {
+  background: #0f3460;
+  color: #e0e0e0;
+  border-color: #0f3460;
+}
+body.dark-mode .product-card {
+  background: #16213e;
+  color: #e0e0e0;
+}
+body.dark-mode .compare-bar {
+  background: #16213e;
+}
+body.dark-mode .modal-content {
+  background: #16213e;
+  color: #e0e0e0;
+}
+body.dark-mode .compare-table th {
+  background: #0f3460;
+  color: #e0e0e0;
+}
+body.dark-mode .compare-table td {
+  border-bottom-color: #0f3460;
+}
+body.dark-mode .spinner {
+  border-color: #0f3460;
+  border-top-color: #008552;
+}
+body.dark-mode footer {
+  background: #0f3460;
+}
+body.dark-mode .pagination-controls button {
+  background: #0f3460;
+  color: #e0e0e0;
+  border-color: #1a1a2e;
+}
+body.dark-mode .pagination-controls button:hover:not(:disabled) {
+  background: #008552;
+}
+body.dark-mode .price-filter {
+  background: #0f3460;
+}
+body.dark-mode .sale-filter-btn {
+  background: #0f3460;
+  color: #e0e0e0;
+  border-color: #1a1a2e;
+}
+body.dark-mode .sale-filter-btn.active {
+  background: #e74c3c;
+  color: white;
+}
+body.dark-mode .product-card .brand {
+  color: #aaa;
+}
+body.dark-mode .product-card .image-wrapper {
+  background: #0f3460;
 }
 
 .container {
@@ -18,105 +89,7 @@ body {
   padding: 0 20px;
 }
 
-/* ====== الأنماط الجديدة ====== */
-
-/* مؤشر التحميل (Spinner) */
-.spinner-container {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 0;
-}
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #008552;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.spinner-container p {
-  margin-top: 15px;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-/* أزرار الترقيم (Pagination) */
-.pagination-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin: 30px 0 100px 0;
-}
-.pagination-controls button {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.pagination-controls button:hover:not(:disabled) {
-  background: #008552;
-  color: white;
-  border-color: #008552;
-}
-.pagination-controls button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-#pageInfo {
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* شريط المقارنة المحسّن */
-.compare-actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.clear-selection-btn {
-  background: transparent;
-  border: 1px solid #e74c3c;
-  color: #e74c3c;
-  padding: 8px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.clear-selection-btn:hover {
-  background: #e74c3c;
-  color: white;
-}
-
-/* تحسين عرض الصور */
-.product-card .image-wrapper {
-  height: 200px;
-  background: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  aspect-ratio: 1 / 1; /* منع اختلاف أحجام الصور */
-}
-
-/* ====== الأنماط القديمة المعدلة قليلاً ====== */
-
+/* Header */
 header {
   background: linear-gradient(135deg, #008552, #006b42);
   color: white;
@@ -136,6 +109,10 @@ header {
   object-fit: contain;
 }
 
+.header-text {
+  flex: 1;
+}
+
 .header-text h1 {
   font-size: 1.8rem;
   font-weight: 300;
@@ -148,6 +125,22 @@ header {
   margin-top: 4px;
 }
 
+.dark-mode-toggle {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.3s;
+}
+.dark-mode-toggle:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Filters */
 .filters {
   background: white;
   padding: 20px;
@@ -219,6 +212,71 @@ header {
   border-color: #008552;
 }
 
+/* Price Filter */
+.price-filter {
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  min-width: 200px;
+}
+.price-filter label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  display: block;
+  margin-bottom: 8px;
+}
+.price-range {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.price-range input[type="range"] {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+}
+.price-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #008552;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.price-values {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #008552;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* Sale Filter Button */
+.sale-filter-btn {
+  background: white;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sale-filter-btn:hover,
+.sale-filter-btn.active {
+  background: #e74c3c;
+  color: white;
+}
+
 .clear-btn {
   background: #e74c3c;
   color: white;
@@ -237,6 +295,18 @@ header {
   background: #c0392b;
 }
 
+/* Results Count */
+.results-count {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  background: white;
+  border-radius: 6px;
+  border-left: 4px solid #008552;
+}
+
+/* Product Grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -252,6 +322,7 @@ header {
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .product-card:hover {
@@ -259,7 +330,41 @@ header {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* باقي الأنماط (البطاقات، الأزرار، المودال، الريسبونسف) تبقى كما هي في ملفك الأصلي */
+/* Wishlist Button */
+.wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #ccc;
+  transition: all 0.3s;
+  z-index: 5;
+}
+.wishlist-btn:hover,
+.wishlist-btn.active {
+  color: #e74c3c;
+}
+
+/* Sale Badge */
+.sale-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e74c3c;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 5;
+}
+
 .product-card .image-wrapper {
   height: 200px;
   background: #f0f0f0;
@@ -267,6 +372,7 @@ header {
   align-items: center;
   justify-content: center;
   padding: 10px;
+  aspect-ratio: 1 / 1;
 }
 
 .product-card img {
@@ -373,6 +479,7 @@ header {
   background: #2563EB;
 }
 
+/* Compare Bar */
 .compare-bar {
   position: fixed;
   bottom: 0;
@@ -387,7 +494,7 @@ header {
   flex-wrap: wrap;
   gap: 10px;
   z-index: 100;
-  border-top: 2px solid #2c3e50;
+  border-top: 2px solid #008552;
 }
 
 .compare-bar #selectionCount {
@@ -395,8 +502,47 @@ header {
   font-weight: 500;
 }
 
+.compare-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clear-selection-btn {
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.clear-selection-btn:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+.share-btn {
+  background: #1E3A8A;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.share-btn:hover {
+  background: #2563EB;
+}
+
 .compare-bar #compareBtn {
-  background: #2c3e50;
+  background: #008552;
   color: white;
   border: none;
   padding: 10px 25px;
@@ -413,9 +559,10 @@ header {
 }
 
 .compare-bar #compareBtn:not(:disabled):hover {
-  background: #1a2634;
+  background: #006b42;
 }
 
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -466,9 +613,56 @@ header {
 
 .modal-content h2 {
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: #008552;
 }
 
+/* Price Chart */
+.price-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  min-height: 150px;
+}
+.price-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.price-bar .bar {
+  width: 60px;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.5s ease;
+}
+.price-bar .bar.cheapest {
+  background: #008552;
+}
+.price-bar .bar.expensive {
+  background: #e74c3c;
+}
+.price-bar .bar.normal {
+  background: #1E3A8A;
+}
+.price-bar .bar-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.price-bar .bar-price {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Compare Table */
 #compareTableContainer {
   overflow-x: auto;
 }
@@ -490,7 +684,7 @@ header {
 .compare-table th {
   background: #f7f7f7;
   font-weight: 600;
-  color: #2c3e50;
+  color: #008552;
   width: 120px;
 }
 
@@ -505,9 +699,9 @@ header {
 }
 
 .compare-table .btn-buy-sm {
-  background: #f1c40f;
-  color: #2c3e50;
-  padding: 4px 12px;
+  background: #1E3A8A;
+  color: white;
+  padding: 6px 14px;
   border-radius: 4px;
   text-decoration: none;
   font-size: 0.8rem;
@@ -517,11 +711,153 @@ header {
 }
 
 .compare-table .btn-buy-sm:hover {
-  background: #f39c12;
+  background: #2563EB;
 }
 
-/* الردود التكيفية (Responsive) - نفس الكود الأصلي مع إضافة تحسينات للعناصر الجديدة */
+/* Price Difference */
+.price-diff {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: #f0f9f0;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 4px solid #008552;
+}
+.price-diff.savings {
+  background: #f0f9f0;
+  border-left-color: #008552;
+  color: #008552;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  z-index: 300;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Spinner */
+.spinner-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #008552;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.spinner-container p {
+  margin-top: 15px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Pagination */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0 100px 0;
+}
+.pagination-controls button {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pagination-controls button:hover:not(:disabled) {
+  background: #008552;
+  color: white;
+  border-color: #008552;
+}
+.pagination-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+#pageInfo {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+footer .disclaimer {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+  .header-text h1 {
+    font-size: 1.3rem;
+  }
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-bar {
+    min-width: unset;
+    width: 100%;
+  }
+  .filter-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-options select {
+    min-width: unset;
+    width: 100%;
+  }
+  .price-filter {
+    width: 100%;
+  }
   .compare-actions {
     flex-wrap: wrap;
     justify-content: center;
@@ -533,6 +869,14 @@ header {
   .pagination-controls button {
     padding: 8px 12px;
     font-size: 0.8rem;
+  }
+  .price-chart {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 15px 10px;
+  }
+  .price-bar .bar {
+    width: 40px;
   }
 }
 
@@ -552,7 +896,15 @@ header {
     flex-direction: column;
     width: 100%;
   }
-  .clear-selection-btn {
+  .clear-selection-btn,
+  .share-btn {
+    width: 100%;
     justify-content: center;
+  }
+  .share-btn {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    border-radius: 6px;
   }
 }
