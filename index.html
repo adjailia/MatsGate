@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comparateur de produits - MetsGate</title>
+  
+  <!-- تحسينات SEO الأساسية -->
+  <title>Mets Gate - Comparateur de Parfums et Soins</title>
+  <meta name="description" content="Comparez les meilleurs parfums, cosmétiques et soins de santé. Trouvez les meilleurs prix et produits en un instant sur Mets Gate.">
+  <meta name="robots" content="index, follow">
+  
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome pour les icônes -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -22,7 +27,7 @@
 
   <main class="container">
 
-    <!-- Barre de recherche et filtres -->
+    <!-- شريط الفلتر والبحث -->
     <section class="filters">
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Rechercher un produit, une marque...">
@@ -39,26 +44,44 @@
       </div>
     </section>
 
-    <!-- Grille de produits -->
+    <!-- مؤشر التحميل (Loading Spinner) -->
+    <div id="loadingSpinner" class="spinner-container">
+      <div class="spinner"></div>
+      <p>Chargement des produits...</p>
+    </div>
+
+    <!-- شبكة المنتجات -->
     <section id="productGrid" class="product-grid">
-      <!-- Les cartes produits seront générées par JavaScript -->
+      <!-- سيتم توليدها بواسطة JavaScript -->
     </section>
 
-    <!-- Bouton de comparaison flottant -->
+    <!-- أزرار التنقل بين الصفحات (Pagination) -->
+    <div id="paginationControls" class="pagination-controls">
+      <button id="prevPageBtn" disabled><i class="fas fa-chevron-left"></i> Précédent</button>
+      <span id="pageInfo">Page 1</span>
+      <button id="nextPageBtn">Suivant <i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- شريط المقارنة الثابت -->
     <div id="compareBar" class="compare-bar">
       <span id="selectionCount">0 produit(s) sélectionné(s)</span>
-      <button id="compareBtn" disabled>Comparer les produits</button>
+      <div class="compare-actions">
+        <button id="clearSelectionBtn" class="clear-selection-btn" title="Désélectionner tout">
+          <i class="fas fa-times-circle"></i> Tout désélectionner
+        </button>
+        <button id="compareBtn" disabled>Comparer les produits</button>
+      </div>
     </div>
 
   </main>
 
-  <!-- Modale de comparaison -->
+  <!-- مودال المقارنة -->
   <div id="compareModal" class="modal">
     <div class="modal-content">
       <span class="close-btn">&times;</span>
       <h2>Comparaison des produits</h2>
       <div id="compareTableContainer">
-        <!-- Le tableau sera généré par JavaScript -->
+        <!-- سيتم توليدها بواسطة JavaScript -->
       </div>
     </div>
   </div>
